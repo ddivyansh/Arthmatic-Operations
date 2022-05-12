@@ -32,7 +32,7 @@ public class OperationController {
         }
         catch (Exception e)
         {
-            return e.toString();
+            return "Please enter the correct input as the application has encountered an exception : "+e.toString();
         }
 
         logicOne.setA(Double.parseDouble(a));
@@ -52,7 +52,7 @@ public class OperationController {
         }
         catch (Exception e)
         {
-            return e.toString();
+            return "Please enter the correct input as the application has encountered an exception : "+e.toString();
         }
 
         logicOne.setA(Double.parseDouble(op.getFirstNumber()));
