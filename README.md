@@ -10,6 +10,7 @@
  * The url path to use the app is :
    * http://localhost:8080/firstNumber/operation/secondNumber
  * To use the application through JSON :
+   * The path has to be /calculate 
    * {
    * "firstNumber" : "56",
    * "secondNumber" : "75",
