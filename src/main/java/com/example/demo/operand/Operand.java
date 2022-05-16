@@ -1,8 +1,13 @@
 package com.example.demo.operand;
 
+import javax.validation.constraints.NotNull;
+
 public class Operand {
+    @NotNull
     private String firstNumber;
+    @NotNull
     private String secondNumber;
+    @NotNull
     private String operation;
 
     public String getFirstNumber() {
@@ -20,6 +25,7 @@ public class Operand {
     public void setSecondNumber(String secondNumber) {
         this.secondNumber = secondNumber;
     }
+
     public String getOperation() {
         return operation;
     }
