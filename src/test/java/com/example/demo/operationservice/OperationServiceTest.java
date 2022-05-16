@@ -25,7 +25,7 @@ class OperationServiceTest {
     @ValueSource(strings = {"addition", "subtraction", "multiplication", "division", "Addition"})
     public void calculateCheck(String operation) {
         operand.setOperation(operation);
-        switch (operation) {
+        switch (operation.toLowerCase()) {
             case "addition" -> Assertions.assertEquals(80.0, operationServiceOne.performCalculation(operand));
             case "subtraction" -> Assertions.assertEquals(-32.0, operationServiceOne.performCalculation(operand));
             case "multiplication" -> Assertions.assertEquals(1344.0, operationServiceOne.performCalculation(operand));
