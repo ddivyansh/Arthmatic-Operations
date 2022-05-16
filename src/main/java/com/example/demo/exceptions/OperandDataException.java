@@ -8,4 +8,9 @@ public class OperandDataException extends Exception{
     public String toString() {
         return "Exception : Please enter correct input !";
     }
+
+    @Override
+    public String getMessage() {
+        return "Exception : Please enter correct input !";
+    }
 }

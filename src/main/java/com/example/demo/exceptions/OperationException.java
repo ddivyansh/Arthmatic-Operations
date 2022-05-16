@@ -7,4 +7,9 @@ public class OperationException extends Exception{
     public String toString() {
         return "Exception : Please add valid operation";
     }
+
+    @Override
+    public String getMessage() {
+        return "Exception : Please add valid operation";
+    }
 }
