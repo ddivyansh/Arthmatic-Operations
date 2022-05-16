@@ -4,6 +4,7 @@ import com.example.demo.operand.Response;
 import com.example.demo.operationservice.OperationService;
 import com.example.demo.operand.Operand;
 import com.example.demo.validationservice.OperandValidationService;
+import jdk.jfr.ContentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,20 +25,23 @@ public class OperationController {
     @Autowired
     private OperandValidationService operandValidationServiceOne;
 
-    @RequestMapping("/home")
+    @RequestMapping(value = "/home", produces = "text/plain")
     public String sayHI() {
-        return "Go through readme to get started with application";
+//        return new ResponseEntity <>(new Response("Go through readme to get started with application"), HttpStatus.OK);
+            return "hello";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/calculate")
-    public ResponseEntity<Response> perform(@Valid @RequestBody Operand operand) {
+    @RequestMapping(method = RequestMethod.POST, value = "/calculate", consumes = "application/json", produces = "text/plain")
+    public String perform(@Valid @RequestBody Operand operand) {
         try {
             operandValidationServiceOne.objectValidation(operand);
         } catch (Exception e) {
-            return new ResponseEntity<>(new Response(e.toString()),HttpStatus.BAD_REQUEST);
+//            return new ResponseEntity<>(new Response(e.toString()), HttpStatus.BAD_REQUEST);
+            return e.toString();
+
         }
-//        Response response = new Response(logicOne.performCalculation(operand));
-        return new ResponseEntity<>(new Response(Double.toString(operationServiceOne.performCalculation(operand))), HttpStatus.OK);
+//        return new ResponseEntity<>(new Response(Double.toString(operationServiceOne.performCalculation(operand))), HttpStatus.OK);
+            return Double.toString(operationServiceOne.performCalculation(operand));
     }
 
 
